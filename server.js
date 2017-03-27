@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var config = require('./config');
 var base58 = require('./base58');
 var Url = require('./server/models/url');
-var counter = require('./server/models/counter');
+
 
 mongoose.connect('mongodb://'+config.db.host+'/'+config.db.name);
 
@@ -47,6 +47,19 @@ app.post('/api/shorten', function (req, res){
         }
     });
 });
+
+// app.get('/:encoded_id', function(req, res){
+//     var base58Id = req.params.encoded_id;
+//     var id = base58.decode(base58Id);
+//
+//     Url.findOne({_id: id}, function(err, doc){
+//         if (doc){res.redirect(doc.long_url);}
+//         else{
+//             res.redirect(config.webhost);
+//         }
+//     });
+// });
+
 
 
 app.listen(3000, function(){
