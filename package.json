@@ -6,7 +6,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "Antsa Randriamihaja",
+  "engines": {
+      "node": "6.2.2"
+  }
+  "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
