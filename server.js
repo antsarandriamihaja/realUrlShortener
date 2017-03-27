@@ -10,7 +10,7 @@ var Url = require('./server/models/url');
 
 var port = process.env.PORT || 3000;
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://'+config.db.host+'/'+config.db.name);
+mongoose.connect(process.env.MONGODB_GREEN_URI || 'mongodb://'+config.db.host+'/'+config.db.name);
 
 var app = express();
 app.set('view engine', 'hbs');
