@@ -1,11 +1,10 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var counter = require('./counter');
 
 var UrlSchema = new Schema ({
     long_url: {
         type: String,
-        required: true,
-        unique: true
     },
     _id: {
         type: Number,
@@ -32,4 +31,4 @@ UrlSchema.pre('save', function(next){
 });
 
 var Url = mongoose.model('Url', UrlSchema);
-module.exports = {Url};
+module.exports = Url;

@@ -13,3 +13,4 @@ var counterSchema = new Schema({
 });
 
 var counter = mongoose.model('counter', counterSchema);
+module.exports = counter;
