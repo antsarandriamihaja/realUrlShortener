@@ -4,13 +4,14 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-  },
-  "engines": {
-      "node": "6.10.0",
+    "test-watch": "nodemon --exec 'npm test'",
+    "start": "node server.js"
   },
   "author": "AR",
   "license": "ISC",
+  "engines": {
+      "node": "6.10.0"
+  },
   "description": "",
   "dependencies": {
     "body-parser": "^1.17.1",
