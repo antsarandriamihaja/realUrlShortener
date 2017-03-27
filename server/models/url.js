@@ -1,13 +1,35 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema();
+var Schema = mongoose.Schema;
 
-var long_urlSchema = new Schema ({
-    url: {
+var UrlSchema = new Schema ({
+    long_url: {
         type: String,
         required: true,
         unique: true
-    }
+    },
+    _id: {
+        type: Number,
+        index: true
+    },
+    created_at: Date
 });
 
-var long_url = mongoose.model('long_url'. long_urlSchema);
-module.exports = {long_url};
+//updating counter schema before saving long url into url collection.
+UrlSchema.pre('save', function(next){
+    var doc = this;
+
+    counter.findByIdAndUpdate({
+        _id: 'url_count'
+    }, {$inc: {
+        seq: 1
+    }}, function(err, counter){
+        if (err) return next(err);
+        //updating fields in url collection
+        doc._id = counter.seq;
+        doc.created_at = new Date();
+        next();
+    });
+});
+
+var Url = mongoose.model('Url', UrlSchema);
+module.exports = {Url};
