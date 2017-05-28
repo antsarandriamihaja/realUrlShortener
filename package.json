@@ -10,14 +10,14 @@
   "author": "AR",
   "license": "ISC",
   "engines": {
-      "node": "6.10.0"
+    "node": "6.10.0"
   },
   "description": "",
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "hbs": "^4.0.1",
-    "mongodb": "^2.2.25",
-    "mongoose": "^4.9.1"
+    "mongodb": "^2.2.26",
+    "mongoose": "^4.9.8"
   }
 }

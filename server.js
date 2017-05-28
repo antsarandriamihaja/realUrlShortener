@@ -1,16 +1,14 @@
 var express = require('express');
 var path = require('path');
 var hbs = require('hbs');
-var mongoose = require('mongoose');
+const {mongoose} = require('./server/db/mongoose');
 var bodyParser = require('body-parser');
-
 var config = require('./config');
 var base58 = require('./base58');
 var Url = require('./server/models/url');
 
-var port = process.env.PORT || 3000;
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://'+config.db.host+'/'+config.db.name);
+var port = process.env.PORT || 3000;
 
 var app = express();
 app.set('view engine', 'hbs');
@@ -24,6 +22,7 @@ app.get('/', function(req, res){
 });
 
 app.post('/api/shorten', function (req, res){
+    console.log('post request started executing')
     var longUrl = req.body.url;
     var shortUrl = '';
 
@@ -60,8 +59,6 @@ app.get('/:encoded_id', function(req, res){
         }
     });
 });
-
-
 
 app.listen(port, function(){
     console.log(`Server running on port ${port}`);
