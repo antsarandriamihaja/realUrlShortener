@@ -3,10 +3,10 @@ var path = require('path');
 var hbs = require('hbs');
 const {mongoose} = require('./server/db/mongoose');
 var bodyParser = require('body-parser');
-var config = require('./config');
+var {config} = require('./config');
 var base58 = require('./base58');
 var Url = require('./server/models/url');
-
+const stripe = require('stripe')(config.secret_key);
 
 var port = process.env.PORT || 3000;
 
@@ -18,8 +18,30 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.get('/', function(req, res){
-    res.render(path.join(__dirname, 'views/index.hbs'));
+    res.render(path.join(__dirname, 'views/form.hbs'));
 });
+
+app.post('/getCardToken', (req, res)=>{
+    var response = req.body;
+    console.log(response)
+    stripe.customers.create({
+        email: response.email,
+        source: response.stripeToken 
+    })
+    .then((customer)=>{
+        stripe.charges.create({
+            amount:response.amount*100,
+            currency: 'cad',
+            customer: customer.id,
+            description: 'Therapy charge'
+
+        })
+    })
+    .catch((error)=>{
+        console.log(`There was an error: ${error}`);
+    })
+     res.render(path.join(__dirname, './views/index.hbs'));
+})
 
 app.post('/api/shorten', function (req, res){
     console.log('post request started executing')
@@ -47,6 +69,8 @@ app.post('/api/shorten', function (req, res){
         }
     });
 });
+
+
 
 app.get('/:encoded_id', function(req, res){
     var base58Id = req.params.encoded_id;
