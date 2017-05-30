@@ -13,15 +13,21 @@
         <div class='form_title'>
             <img id='logo' src="http://www.international.gc.ca/world-monde/assets/images/funding-financement/GOC_colour_en.png" alt="gov_logo">
         </div>
-        <div class='card'>
-
+        <div class='card stripe'>
+            <div class = 'title'>
+                <h2>Billing information</h2>
+                <br>
+                <h4>In order to use the URL-shortening service, a processing fee of <strong>$250.99</strong> is required. <br> <br> Please enter your credit card information below.</h4>
+            </div>
+            <br>
             <form action="/getCardToken" method="post" id="payment-form" class='form-horizontal'>
                 <div class='user_input'>
                     <div>
-                        <input type="text" class="form-control" id="name" placeholder="Name on Card" name="cardholder-name" required>
+                        <label for="card">Name as it appears on card: </label>
+                        <input type="text" class="form-control" id="name" placeholder="Name on Card" name="cardholder" required>
                     </div>
                     <br>
-                    <label for="card">Credit card information: </label>
+                    <label for="card">Credit card number: </label>
                     <div class="card_info">
                         <div id="card-element">
                             <!-- a Stripe Element will be inserted here. -->
@@ -45,5 +51,6 @@
 <script src="https://js.stripe.com/v3/"></script>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="/javascripts/stripe.js"></script>
+
 
 </HTML>

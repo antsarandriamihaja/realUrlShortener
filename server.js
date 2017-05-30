@@ -30,11 +30,13 @@ app.post('/getCardToken', (req, res)=>{
     console.log(response)
     stripe.customers.create({
         source: response.stripeToken 
+        
     })
     .then((customer)=>{
         stripe.charges.create({
             amount:250.99*100,
             currency: 'cad',
+            customer: customer.id,
             description: 'URL-shortening service provided by the government of Canada.'
 
         })

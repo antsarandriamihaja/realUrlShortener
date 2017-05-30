@@ -35,6 +35,24 @@ body{
         opacity: 0
     }
 }
+
+@keyframes spaceInUp {
+  0% {
+    opacity: 0;
+    transform-origin: 50% 0%;
+    transform: scale(0) translate(0%, -200%);
+  }
+
+  100% {
+    opacity: 1;
+    transform-origin: 50% 0%;
+    transform: scale(1) translate(0%, 0%);
+  }
+}
+.animate{
+    animation: 0.2s ease-in 0s 1 spaceInUp;
+    
+}
 #welcome_message{
     border: 2px solid white;
     color: white;
@@ -129,14 +147,27 @@ hr.stylehr{
 }
 .stripe{
    margin: 15% auto;
-  margin-top: 5%;
+  margin-top: 3%;
   margin-bottom: 5%;
   max-width: 800px;
   background: white;
   padding: 5%;
-  border-radius: 20px; 
+  border-radius: 20px; ;
+  text-align: left
 }
-
+.service{
+  margin: 15% auto;
+  margin-top: 3%;
+  margin-bottom: 5%;
+  max-width: 800px;
+  background: white;
+  padding: 5%;
+  border-radius: 20px; ;
+  text-align: left 
+}
+#card-errors{
+    color: #f39c12;
+}
 .status{
     display: inline-block
 }
@@ -145,7 +176,7 @@ hr.stylehr{
     display: inline-block
 }
 #logo{
-width: 100%;
+width: 90%;
 height: auto;
 margin-top:3%;
 margin-bottom: 3%
@@ -167,4 +198,27 @@ margin-bottom: 3%
 #user_form .has-success .help-block,
 #user_form .has-success .form-control-feedback {
     color: #18bc9c;
+}
+
+#user_url .has-error .control-label,
+#user_url .has-error .help-block,
+#user_url .has-error .form-control-feedback {
+    color: #f39c12;
+}
+#user_url .has-success .control-label,
+#user_url .has-success .help-block,
+#user_url .has-success .form-control-feedback {
+    color: #18bc9c;
+}
+.thankYou{
+    color: #18bc9c;
+}
+.shorter{
+    margin: 3%;
+    margin-left: 0%
+}
+
+#link{
+     animation: 1s ease-in 0s 1 spaceInUp;
+     animation-fill-mode: forwards;
 }
