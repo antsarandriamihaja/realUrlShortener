@@ -11,126 +11,79 @@
 
 <body>
     <div class='container'>
-        <div class='user_form'>
-            <div class='form_instructions'>
-                <h2> Please fill out the form below: </h2>
-                <br>
-            </div>
-                <div class="form-group">
-                    <input class="form-control" type="text" placeholder="Enter your name">
-                </div>
-                <div class="form-group">
-                    <input class="form-control" type="text" placeholder="Street Address">
-                </div>
-                <div class="form-group">
-                    <input class="form-control" type="number" placeholder="Apartment, Suite, Rm">
-                </div>
-                <div class="form-group">
-                    <input class="form-control" type="text" placeholder="City">
-                </div>
-                <div class="form-group">
-                    <input class="form-control" type="text" placeholder="Zip Code">
-                </div>
-                <div class="form-group">
-                    <input class="form-control" type="email" placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <input class="form-control" type="tel" placeholder="1-(555)-555-5555">
-                </div>
-                <fieldset class="form-group row">
-                    <legend class="col-form-legend col-sm-2">Marital Status: </legend>
-                    <div class="col-sm-10">
-                        <div class="form-check">
-                            <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="gridRadios" checked>
-            Single
-          </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="gridRadios">
-           Married
-          </label>
-                        </div>
-                        <div class="form-check disabled">
-                            <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="gridRadios">
-            Widowed
-          </label>
-                        </div>
-                        <div class="form-check disabled">
-                            <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="gridRadios" >
-            Divorced
-          </label>
-                        </div>
-                    </div>
-                </fieldset>
-
-                <fieldset class="form-group row">
-                    <legend class="col-form-legend col-sm-2">Status in Canada: </legend>
-                    <div class="col-sm-10">
-                        <div class="form-check">
-                            <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="gridRadios" checked>
-            Canadian citizen
-          </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="gridRadios">
-           Permanent Resident
-          </label>
-                        </div>
-                        <div class="form-check disabled">
-                            <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="gridRadios">
-           Temporary Resident
-          </label>
-                        </div>
-                </fieldset>
-
-            </div>
-            <div class='stripe'>
-                <h1 id= 'billing'> Billing Information </h1>
-                <h3 id='payment_instruction'> You must pay a processing fee of $250.99 to use our service. Due to a high volume of demand, our service may take some time. We appreciate your patience. </h3>
-                <form action="/getCardToken" method="post" id="payment-form" class='form-horizontal'>
-            <div class='user_input'>
-                <div class='img_container'>
-                    <img id='logo' src="http://open.canada.ca/profiles/wetkit/libraries/theme-gcweb/assets/sig-blk-en.png" alt="gov_logo">
-                </div>
-
-                <div class="form-group">
-                    <input type="number" class="form-control" id="amount" placeholder="Amount to pay: $10.99" name="amount">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="name" placeholder="Enter your name" name="cardholder-name">
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email">
-                </div>
-                <div class="card_info">
-                    <div id="card-element">
-                        <!-- a Stripe Element will be inserted here. -->
-                    </div>
-
-                </div>
-                <!-- Used to display Element errors -->
-                
-                    <div id="card-errors" role="alert"></div>
-            </div>
-
-            <div class="submit">
-
-                <button type="submit" class="btn btn-lg">Submit Payment</button>
-
-            </div>
-        </form>
-            </div>
+        <div class='form_title'>
+            <img id='logo' src="http://www.international.gc.ca/world-monde/assets/images/funding-financement/GOC_colour_en.png" alt="gov_logo">
         </div>
-    
+
+        <div class='card'>
+            <div class='user_form'>
+                <div class='form_instructions'>
+                    <h1>URL-shortening service: Application form.</h1>
+                    <br>
+                    <h5> Your privacy is important to us. Please provide us with your personal information. </h5>
+                    <br>
+                </div>
+                <form id='user_form' action="/getUserInfo" method='post' class='form-horizontal' data-toggle='validator'>
+                    <div class="form-group">
+                        <input name='userName'class="form-control" type="text" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <input name='address'class="form-control" type="text" placeholder="Street Address">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="number" placeholder="Apartment, Suite, Rm">
+                    </div>
+                    <div class="form-group">
+                        <input name='city'class="form-control" type="text" placeholder="City">
+                    </div>
+                    <div class="form-group">
+                        <input name='zipCode'class="form-control" type="text" placeholder="Zip Code">
+                    </div>
+                    <div class="form-group">
+                        <input name='email'class="form-control" type="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input name='phone' class="form-control" type="tel" placeholder="1-(555)-555-5555">
+                    </div>
+                    <div class='input-group'>
+                        <label for="marital">Marital status: </label>
+                        <div class='input-group'>
+
+                            <select class='form-control' id='severity' required>
+  <option value="single">Single</option>
+  <option value="Married">Married</option>
+  <option value="Divorced">Divorced</option>
+  <option value="Widowed">Widowed</option>
+ 
+                    </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class='input-group'>
+                        <label for="status">Status in Canada: </label>
+                        <div class='input-group'>
+
+                            <select class='form-control' id='status' required>
+  <option value="Citizen">Canadian Citizen</option>
+  <option value="PR">Permanent Resident</option>
+  <option value="TR">Temporary Resident</option>
+ 
+                    </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="submit">
+
+                        <button type="submit" class="btn btn-primary btn-lg">Proceed to payment</button>
+
+                    </div>
+                </form>
+
+
+
 </body>
- <script src="https://js.stripe.com/v3/"></script>
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="/javascripts/stripe.js"></script>    
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
+<script src="/javascripts/form.js"></script>
+
 </html>

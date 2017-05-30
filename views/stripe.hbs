@@ -1,0 +1,49 @@
+<!doctype HTML>
+<HTML>
+
+<head>
+    <title>Payment</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class='container'>
+        <div class='form_title'>
+            <img id='logo' src="http://www.international.gc.ca/world-monde/assets/images/funding-financement/GOC_colour_en.png" alt="gov_logo">
+        </div>
+        <div class='card'>
+
+            <form action="/getCardToken" method="post" id="payment-form" class='form-horizontal'>
+                <div class='user_input'>
+                    <div>
+                        <input type="text" class="form-control" id="name" placeholder="Name on Card" name="cardholder-name" required>
+                    </div>
+                    <br>
+                    <label for="card">Credit card information: </label>
+                    <div class="card_info">
+                        <div id="card-element">
+                            <!-- a Stripe Element will be inserted here. -->
+                        </div>
+
+                    </div>
+                    <!-- Used to display Element errors -->
+
+                    <div id="card-errors" role="alert"></div>
+                </div>
+                <br>
+                <div class="submit">
+
+                    <button type="submit" class="btn btn-primary btn-lg">Submit Payment</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="/javascripts/stripe.js"></script>
+
+</HTML>

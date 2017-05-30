@@ -1,5 +1,5 @@
 body{
-    background-color: #E0F7FA;
+    background-color: #f9f9f9;
     text-align: center;
     font-family: 'Dosis', sans-serif;
     margin: 0%
@@ -119,10 +119,52 @@ hr.stylehr{
 }
 .user_form{
     margin: 15% auto;
-  margin-top: 5%;
+    margin-top: 0%;
   margin-bottom: 0px;
-  max-width: 600px;
+  max-width: 800px;
   background: white;
   padding: 5%;
   border-radius: 20px;
+  text-align: left
+}
+.stripe{
+   margin: 15% auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  max-width: 800px;
+  background: white;
+  padding: 5%;
+  border-radius: 20px; 
+}
+
+.status{
+    display: inline-block
+}
+.form_title{
+    max-width: 800px;
+    display: inline-block
+}
+#logo{
+width: 100%;
+height: auto;
+margin-top:3%;
+margin-bottom: 3%
+}
+
+#title_form{
+    max-width: 800px;
+    display: inline-block;
+    text-align: left;
+    margin-left: -10%
+}
+#user_form .has-error .control-label,
+#user_form .has-error .help-block,
+#user_form .has-error .form-control-feedback {
+    color: #f39c12;
+}
+
+#user_form .has-success .control-label,
+#user_form .has-success .help-block,
+#user_form .has-success .form-control-feedback {
+    color: #18bc9c;
 }

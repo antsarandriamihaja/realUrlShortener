@@ -19,9 +19,7 @@ card.addEventListener('change', function(event){
 form.addEventListener('submit', function(event){
     event.preventDefault();
     var extraDetails = {
-    name: form.querySelector('input[name=cardholder-name]').value,
-    email: form.querySelector('input[name=email]').value,
-    amount: form.querySelector('input[name=amount]').value
+   name: form.querySelector('input[name=cardholder-name]').value
   };
   console.log(extraDetails);
     stripe.createToken(card, extraDetails) //returns a promise that resolves with result object.
@@ -30,12 +28,10 @@ form.addEventListener('submit', function(event){
             //let user know there was an error
             var error = document.getElementById('card-errors');
             console.log(result.error);
-            error.textContent = result.error.message;
-            
+            error.textContent = result.error.message; 
         }
         else{
             //send token to server
-            console.log(result);
             stripeTokenHandler(result.token);
         }
     })

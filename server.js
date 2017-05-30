@@ -21,19 +21,21 @@ app.get('/', function(req, res){
     res.render(path.join(__dirname, 'views/form.hbs'));
 });
 
+app.post('/getUserInfo', (req,res)=>{
+     res.render(path.join(__dirname, 'views/stripe.hbs'));
+})
+
 app.post('/getCardToken', (req, res)=>{
     var response = req.body;
     console.log(response)
     stripe.customers.create({
-        email: response.email,
         source: response.stripeToken 
     })
     .then((customer)=>{
         stripe.charges.create({
-            amount:response.amount*100,
+            amount:250.99*100,
             currency: 'cad',
-            customer: customer.id,
-            description: 'Therapy charge'
+            description: 'URL-shortening service provided by the government of Canada.'
 
         })
     })
