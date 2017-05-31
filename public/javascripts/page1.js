@@ -22,4 +22,29 @@ $(document).ready(function () {
         console.log('inside else statement executed')
         close.show()
     }
+    user_number.on('click', function(){
+        $('.welcome_message').addClass('hidden')
+        $('.hours').addClass('hidden');
+        $('.give_number').addClass('exiting')
+        setTimeout(function(){
+            $('.give_number').hide()
+        },500)
+        setTimeout(function(){
+            $('.now_serving').removeClass('hidden')
+        },600)
+        var $count = $('#count');
+        var interval = setInterval(function(){
+            var val = parseInt($count.html());
+            val++
+            $count.html('0'+val);
+            if (val === 67){
+                clearInterval(interval); 
+            }
+        },5000)
+        setTimeout(function(){
+            $('.display_number').hide();
+            $('.now_serving').hide();
+            $('.card').removeClass('hidden')
+        },11000)
+    })
 })

@@ -1,21 +1,55 @@
-<!doctype html>
-<html>
-
-<head>
-    <title>URL Shortening form</title>
-    <meta charset="UTF-8">
-
+<!doctype HTML>
+<HTML>
+    <head>
+        <title>URL-shortening Service</title>
+        <meta charset="UTF-8">
+         <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet" type ='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="/style.css" rel="stylesheet">
-</head>
-
-<body>
-    <div class='container'>
-        <div class='form_title'>
+  <link href="https://fonts.googleapis.com/css?family=Codystar|Raleway+Dots" rel="stylesheet"> 
+  </head>
+    <body>
+        <div class='container'>
+            <div class = 'page1'>
+                <div class='form_title'>
             <img id='logo' src="http://www.international.gc.ca/world-monde/assets/images/funding-financement/GOC_colour_en.png" alt="gov_logo">
         </div>
+                <div id = 'welcome_message' class='welcome_message'>
+                    <h1 id='welcome'>
+                        Welcome to the government-funded URL-shortening service.
+                    </h1>
+                 </div>
+                 <div class='closed'>
+                     <h1>Sorry, this service is currently unavailable. Please see our opening hours below.</h1>
+                 </div>
+                   <div class='now_serving hidden'>
+                    <div id='serving_box'>
+                        <h2 >
+                            NOW SERVING
+                        </h2>
+                        <div class = 'counting'>
+                            <span id='count'>065</span>
+                        </div>
+                    </div> 
+                </div>
+               <div class='give_number'>
+                    <h3 id='instructions_number'>
+                        Please take a number.
+                    </h3>
+                    <hr class='stylehr'>
+                </div>
 
-        <div class='card hidden'>
+                <div class= 'display_number'>
+                    <img id='user_number'src="https://modernweb.com/wp-content/uploads/2014/02/icon_28196_67.png" alt="user_number">
+                </div>
+            
+                <div class = 'hours'>
+                    <p id= 'service_hours'> We are open from 10am to 3pm on Monday through Friday. <br>  Except on holidays including Mother's Day, 
+                    Thanksgiving, Labour Day, Remembrance Day, and others. <br> We also take a lunch break from 11am-1pm so time your arrival appropriately. Thank you. </p> 
+               
+                </div>
+            </div>   
+             <div class='card hidden'>
             <div class='user_form'>
                 <div class='form_instructions'>
                     <h1>URL-shortening service: Application form.</h1>
@@ -80,11 +114,12 @@
                 </form>
             </div>
             </div>
-
-
-</body>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+   
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
+<script src="/javascripts/page1.js"></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
 <script src="/javascripts/form.js"></script>
-
-</html>
+</HTML>

@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.get('/', function(req, res){
-    res.render(path.join(__dirname, 'views/form.hbs'));
+    res.render(path.join(__dirname, 'views/government.hbs'));
 });
 
 app.post('/getUserInfo', (req,res)=>{

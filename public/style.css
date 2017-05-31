@@ -7,7 +7,7 @@ body{
 
 
 @keyframes dropDown{
-    0% {transform: translateY(-120px); opacity: 0; z-index:0}
+    0% {transform: translateY(-160px); opacity: 0; z-index:0}
     100%{opacity: 1;z-index: 1}
 }
 @keyframes leftSlide{
@@ -39,7 +39,7 @@ body{
 @keyframes spaceInUp {
   0% {
     opacity: 0;
-    transform-origin: 50% 0%;
+    transform-origin: 20% -250%;
     transform: scale(0) translate(0%, -200%);
   }
 
@@ -49,24 +49,45 @@ body{
     transform: scale(1) translate(0%, 0%);
   }
 }
-.animate{
-    animation: 0.2s ease-in 0s 1 spaceInUp;
-    
+@keyframes vanishIn {
+  0% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform: scale(2, 2);
+    filter: blur(90px);
+  }
+
+  100% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform: scale(1, 1);
+    filter: blur(0px);
+  }
 }
+@keyframes neon{
+    from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177;
+  }
+}
+.animate{
+    animation: spaceInUp 1s;  
+}
+.tada{
+    animation: vanishIn 1s
+}
+
 #welcome_message{
-    border: 2px solid white;
-    color: white;
-    background-color: #3F51B5;
-    font-size: 50px;
+    font-size: 70px;
     max-width: 800px;
     height: auto;
     animation: 0.5s ease-in 0s 1 fadeIn;
     animation-fill-mode: forwards;
-    padding: 5%;
     text-align: center;
     display: inline-block;
-    margin-top: 5%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color:#f9f9f9
 }
 .closed{
     font-size: 50px;
@@ -80,28 +101,27 @@ body{
     margin-top: 10%
 }
 .give_number{
-    padding-top: 5%;
+ padding-top: 3%;
     margin-bottom: 0px;
     padding-bottom: 0px;
     animation: 0.5s ease-in 0s 1 fadeIn;
     animation-fill-mode: forwards;
     position: relative;
     z-index: 3;
-    background-color:rgba(224,247,250,1);
-}
-
-.user{
-    margin-top:-30px;
-    padding-top: 0px;
+    background-color: #f9f9f9;
 }
 #user_number{
    height: 250px;
     animation: 1s ease-in 0s 1 dropDown;
-    margin-bottom: 15%;
-    padding-bottom: 5%;
     animation-fill-mode: forwards;
 }
-
+.display_number{
+    position: fixed;
+    bottom: 15%;
+    left: 50%;
+    margin-left: -50%;
+    width: 100%
+}
 .wait{
      animation: 1s ease-in 0s 1 fadeIn;
      animation-fill-mode: forwards;
@@ -114,13 +134,13 @@ hr.stylehr{
 }
    
 .hours{
-    margin-top: 15%;
-    position: absolute;
-    bottom: 30px;
+    position: fixed;
+    bottom: 0;
     width: 100%;
     left: 50%;
     margin-left: -50%
 }
+
 
 .exiting{
     animation: 0.5s ease-in 0s 1 fadeOut;
@@ -221,4 +241,26 @@ margin-bottom: 3%
 #link{
      animation: 1s ease-in 0s 1 spaceInUp;
      animation-fill-mode: forwards;
+}
+.now_serving{
+    left: 50%;
+    margin-left: -50%;
+    width: 100%;
+    position: fixed;
+   top: 20%
+}
+#serving_box{
+    background-color: black;
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    display: inline-block;
+    color: white;
+    border: 2px solid white
+}
+.counting{
+    font-family: 'Codystar', cursive;
+    font-size: 100px;
+    color: white;
+    animation: neon 1.5s ease-in-out infinite alternate;
 }

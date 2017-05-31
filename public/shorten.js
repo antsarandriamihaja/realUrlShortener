@@ -25,7 +25,7 @@ $(document).ready(function () {
         }
     })
     $('.shorten').on('click', function () {
-        if ($('.shorter').hasClass('animate')) { $('.shorter').removeClass('animate') }
+        if ($('.shorter').hasClass('animate')) { $('.shorter').removeClass('animate tada') }
         $.ajax({
             url: '/api/shorten',
             type: 'POST',
@@ -34,6 +34,9 @@ $(document).ready(function () {
             success: function (data) {
                 var result = '<a  class = "result" href="' + data.shortUrl + '" target= "_blank">' + data.shortUrl + '</a>';
                 $('.shorter').addClass('animate')
+                setTimeout(function(){
+                    $('.shorter').addClass('tada')
+                },1000)
                 $('#link').html(result);
 
             }
