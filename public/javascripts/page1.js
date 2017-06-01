@@ -9,7 +9,6 @@ $(document).ready(function () {
     var day = moment().format('ddd');
     var time = moment().format('H');
     if( (time >= 10 && time <= 15)&& !(time>11 && time<13) && !(day === 'Sat') && !(day ==='Sun')) {
-        console.log('inside if statemet executed')
         setTimeout(function () {
             ele.show();
         }, 1500);
@@ -19,12 +18,11 @@ $(document).ready(function () {
         }, 3500)
     }
     else {
-        console.log('inside else statement executed')
         close.show()
     }
     user_number.on('click', function(){
         $('.welcome_message').addClass('hidden')
-        $('.hours').addClass('hidden');
+        $('.hours').addClass('swashOut');
         $('.give_number').addClass('exiting')
         setTimeout(function(){
             $('.give_number').hide()
@@ -37,14 +35,17 @@ $(document).ready(function () {
             var val = parseInt($count.html());
             val++
             $count.html('0'+val);
+            $('.counting').addClass('blink-3')
             if (val === 67){
                 clearInterval(interval); 
             }
-        },5000)
+        },10000)
         setTimeout(function(){
-            $('.display_number').hide();
-            $('.now_serving').hide();
-            $('.card').removeClass('hidden')
-        },11000)
+            $('.display_number').addClass('swashOut');
+            $('.now_serving').removeClass('swashIn').addClass('swashOut');
+            setTimeout(function(){
+                $('.card').removeClass('hidden')
+            },1000)
+        },21000)
     })
 })

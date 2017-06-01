@@ -1,89 +1,94 @@
 <!doctype HTML>
 <HTML>
-    <head>
-        <title>URL-shortening Service</title>
-        <meta charset="UTF-8">
-         <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet" type ='text/css'>
+
+<head>
+    <title>URL-shortening Service</title>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="/style.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Codystar|Raleway+Dots" rel="stylesheet"> 
-  </head>
-    <body>
-        <div class='container'>
-            <div class = 'page1'>
-                <div class='form_title'>
-            <img id='logo' src="http://www.international.gc.ca/world-monde/assets/images/funding-financement/GOC_colour_en.png" alt="gov_logo">
-        </div>
-                <div id = 'welcome_message' class='welcome_message'>
-                    <h1 id='welcome'>
-                        Welcome to the government-funded URL-shortening service.
-                    </h1>
-                 </div>
-                 <div class='closed'>
-                     <h1>Sorry, this service is currently unavailable. Please see our opening hours below.</h1>
-                 </div>
-                   <div class='now_serving hidden'>
-                    <div id='serving_box'>
-                        <h2 >
-                            NOW SERVING
-                        </h2>
-                        <div class = 'counting'>
-                            <span id='count'>065</span>
-                        </div>
-                    </div> 
-                </div>
-               <div class='give_number'>
-                    <h3 id='instructions_number'>
-                        Please take a number.
-                    </h3>
-                    <hr class='stylehr'>
-                </div>
+    <link href="https://fonts.googleapis.com/css?family=Codystar|Raleway+Dots" rel="stylesheet">
+</head>
 
-                <div class= 'display_number'>
-                    <img id='user_number'src="https://modernweb.com/wp-content/uploads/2014/02/icon_28196_67.png" alt="user_number">
+<body>
+    <div class='container'>
+        <div class='page1'>
+            <div class='form_title'>
+                <img id='logo' src="http://www.international.gc.ca/world-monde/assets/images/funding-financement/GOC_colour_en.png" alt="gov_logo">
+            </div>
+            <div id='welcome_message' class='welcome_message'>
+                <h1 id='welcome'>
+                    Welcome to the government-funded URL-shortening service.
+                </h1>
+            </div>
+            <div class='closed'>
+                <h1>Sorry, this service is currently unavailable. Please see our opening hours below.</h1>
+            </div>
+            <div class='now_serving swashIn hidden'>
+                <div id='serving_box'>
+                    <h2>
+                        NOW SERVING
+                    </h2>
+                    <div class='counting'>
+                        <span id='count'>065</span>
+                    </div>
                 </div>
-            
-                <div class = 'hours'>
-                    <p id= 'service_hours'> We are open from 10am to 3pm on Monday through Friday. <br>  Except on holidays including Mother's Day, 
-                    Thanksgiving, Labour Day, Remembrance Day, and others. <br> We also take a lunch break from 11am-1pm so time your arrival appropriately. Thank you. </p> 
-               
-                </div>
-            </div>   
-             <div class='card hidden'>
+            </div>
+            <div class='give_number'>
+                <h3 id='instructions_number'>
+                    Please take a number.
+                </h3>
+                <hr class='stylehr'>
+            </div>
+
+            <div class='display_number'>
+                <figure>
+                    <img id='user_number' src="https://modernweb.com/wp-content/uploads/2014/02/icon_28196_67.png" alt="user_number">
+                </figure>
+            </div>
+
+            <div class='hours'>
+                <p id='service_hours'> We are open from 10am to 3pm on Monday through Friday. <br> Except on holidays including Mother's Day, Thanksgiving,
+                    Labour Day, Remembrance Day, and others. <br> We also take a lunch break from 11am-1pm so time your arrival
+                    appropriately. Thank you. </p>
+
+            </div>
+        </div>
+        <div class='card hidden swashIn'>
             <div class='user_form'>
                 <div class='form_instructions'>
                     <h1>URL-shortening service: Application form.</h1>
                     <br>
-                    <h5> Your privacy is important to us. Please provide us with your personal information. </h5>
+                    <h4> Your privacy is important to us. Please provide us with your personal information. </h4>
                     <br>
                 </div>
-                <form id='user_form' action="/getUserInfo" method='post' class='form-horizontal' data-toggle='validator'>
+                <form id='user_form' class='form-horizontal' data-toggle='validator'>
                     <div class="form-group">
-                        <input name='userName'class="form-control" type="text" placeholder="Enter your name">
+                        <input required name='userName' class="form-control" type="text" placeholder="Enter your name">
                     </div>
                     <div class="form-group">
-                        <input name='address'class="form-control" type="text" placeholder="Street Address">
+                        <input required name='address' class="form-control" type="text" placeholder="Street Address">
                     </div>
                     <div class="form-group">
                         <input class="form-control" type="number" placeholder="Apartment, Suite, Rm">
                     </div>
                     <div class="form-group">
-                        <input name='city'class="form-control" type="text" placeholder="City">
+                        <input required name='city' class="form-control" type="text" placeholder="City">
                     </div>
                     <div class="form-group">
-                        <input name='zipCode'class="form-control" type="text" placeholder="Zip Code">
+                        <input required name='zipCode' class="form-control" type="text" placeholder="Zip Code">
                     </div>
                     <div class="form-group">
-                        <input name='email'class="form-control" type="email" placeholder="Email">
+                        <input required name='email' class="form-control" type="email" placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <input name='phone' class="form-control" type="tel" placeholder="1-(555)-555-5555">
+                        <input required name='phone' class="form-control" type="tel" placeholder="1-(555)-555-5555">
                     </div>
-                    <div class='input-group'>
+                    <div class='form-group'>
                         <label for="marital">Marital status: </label>
                         <div class='input-group'>
 
-                            <select class='form-control' id='severity' required>
+                            <select class='form-control' id='civil_status' required>
   <option value="single">Single</option>
   <option value="Married">Married</option>
   <option value="Divorced">Divorced</option>
@@ -93,7 +98,7 @@
                         </div>
                     </div>
                     <br>
-                    <div class='input-group'>
+                    <div class='form-group'>
                         <label for="status">Status in Canada: </label>
                         <div class='input-group'>
 
@@ -106,20 +111,59 @@
                         </div>
                     </div>
                     <br>
-                    <div class="submit">
+                    <div class="form-group">
 
-                        <button type="submit" class="btn btn-primary btn-lg">Proceed to payment</button>
+                        <button type='submit' id='proceed' class="btn btn-primary btn-lg">Proceed to payment</button>
 
                     </div>
                 </form>
             </div>
-            </div>
-   
         </div>
-    </body>
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
-<script src="/javascripts/page1.js"></script>
+
+        <div class='stripe hidden swashIn'>
+            <div class='title'>
+                <h2>Billing information</h2>
+                <br>
+                <h4>In order to use the URL-shortening service, a processing fee of <strong>$250.99</strong> is required. <br>                    <br> Please enter your credit card information below.</h4>
+            </div>
+            <br>
+            <form action="/getCardToken" method="post" id="payment-form" class='form-horizontal'>
+                <div class='user_input'>
+                    <div>
+                        <label for="card">Name as it appears on card: </label>
+                        <input type="text" class="form-control" id="name" placeholder="Name on Card" name="cardholder" required>
+                    </div>
+                    <br>
+                    <label for="card">Credit card number: </label>
+                    <div class="card_info">
+                        <div id="card-element">
+                            <!-- a Stripe Element will be inserted here. -->
+                        </div>
+
+                    </div>
+                    <!-- Used to display Element errors -->
+
+                    <div id="card-errors" role="alert"></div>
+                </div>
+                <br>
+                <div class="submit">
+
+                    <button type="submit" class="btn btn-primary btn-lg">Submit Payment</button>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
+<!--<script src='https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.10.2/validator.min.js'></script>-->
 <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
+<script src="/javascripts/page1.js"></script>
 <script src="/javascripts/form.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="/javascripts/stripe.js"></script>
+
+
 </HTML>

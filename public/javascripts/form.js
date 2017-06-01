@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $('#user_form').bootstrapValidator({
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
@@ -20,14 +20,14 @@ $(document).ready(function() {
                     }
                 }
             },
-            city:{
+            city: {
                 validators: {
                     notEmpty: {
                         message: 'The city is required'
                     }
                 }
             },
-            zipCode:{
+            zipCode: {
                 validators: {
                     notEmpty: {
                         message: 'The postal code is required'
@@ -38,14 +38,18 @@ $(document).ready(function() {
                     }
                 }
             },
-            email:{
+            email: {
                 validators: {
                     notEmpty: {
                         message: 'The email is required'
+                    },
+                    regexp: {
+                        regexp: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
                     }
                 }
             },
-            phone:{
+            phone: {
                 validators: {
                     notEmpty: {
                         message: 'The phone number is required'
@@ -58,4 +62,20 @@ $(document).ready(function() {
             }
         }
     });
+$('#user_form').submit(function(e){e.preventDefault()})
+$('#proceed').on('click', function(){
+    var bootstrapValidator = $('#user_form').data('bootstrapValidator');
+    bootstrapValidator.validate();
+    if (bootstrapValidator.isValid()){
+         $('.card').removeClass('swashIn')
+        $('.card').addClass('swashOut')
+        console.log('stripe should show')
+       setTimeout(function(){
+           $('.card').hide()
+         $('.stripe').removeClass('hidden')
+       },1000)
+       
+    }
+    else return
+})
 });
