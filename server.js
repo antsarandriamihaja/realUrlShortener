@@ -9,7 +9,9 @@ var Url = require('./server/models/url');
 const stripe = require('stripe')(config.secret_key);
 
 var port = process.env.PORT || 3000;
+process.env.HOST = 'https://shrouded-stream-93491.herokuapp.com'
 var webhost = process.env.HOST || config.webhost;
+console.log(process.env.HOST)
 
 var app = express();
 app.set('view engine', 'hbs');
@@ -53,6 +55,7 @@ app.post('/api/shorten', function (req, res){
         long_url: longUrl
     }, function(err, doc){
         if (doc){
+            console.log(webost)
             shortUrl = webhost +base58.encode(doc._id);
 
             res.send({'shortUrl': shortUrl});
