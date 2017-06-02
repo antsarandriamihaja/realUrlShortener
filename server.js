@@ -21,10 +21,6 @@ app.get('/', function(req, res){
     res.render(path.join(__dirname, 'views/government.hbs'));
 });
 
-// app.post('/getUserInfo', (req,res)=>{
-//      res.render(path.join(__dirname, 'views/stripe.hbs'));
-// })
-
 app.post('/getCardToken', (req, res)=>{
     var response = req.body;
     console.log(response)
