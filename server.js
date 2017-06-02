@@ -9,7 +9,7 @@ var Url = require('./server/models/url');
 const stripe = require('stripe')(config.secret_key);
 
 var port = process.env.PORT || 3000;
-//process.env.HOST = 'https://shrouded-stream-93491.herokuapp.com'
+process.env.HOST = 'https://shrouded-stream-93491.herokuapp.com'
 var webhost = process.env.HOST || config.webhost;
 console.log(process.env.HOST)
 
