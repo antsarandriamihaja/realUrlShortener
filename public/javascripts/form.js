@@ -63,17 +63,12 @@ $(document).ready(function () {
         }
     });
 $('#user_form').submit(function(e){e.preventDefault()})
-$(".btn").hover(
-  function () {
-    $(this).toggleClass('zoom');
-  }
-  );
 $('#proceed').on('click', function(){
     var bootstrapValidator = $('#user_form').data('bootstrapValidator');
     bootstrapValidator.validate();
     if (bootstrapValidator.isValid()){
-         $('.card').removeClass('swashIn')
-        $('.card').addClass('swashOut')
+         $('.card').removeClass('fadeIn')
+        $('.card').addClass('fadeOut')
         console.log('stripe should show')
        setTimeout(function(){
            $('.card').hide()

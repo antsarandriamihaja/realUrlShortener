@@ -1,6 +1,6 @@
 $(document).ready(function(){
     setTimeout(function(){
-        $('.loader').fadeOut();
+        $('.loader').fadeOut().hide();
     },3500)
     setTimeout(function(){
         $('.thankYou').removeClass('hidden')

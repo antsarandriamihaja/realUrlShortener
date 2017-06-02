@@ -1,10 +1,5 @@
 
 $(document).ready(function () {
-    $(".btn").hover(
-  function () {
-    $(this).toggleClass('zoom');
-  }
-  );
     var close = $('.closed')
     var ele = $('.give_number');
     var user_number = $('.display_number');
@@ -26,8 +21,9 @@ $(document).ready(function () {
         close.show()
     }
     user_number.on('click', function () {
-        $('.welcome_message').fadeOut()
-        $('.hours').addClass('swashOut');
+        $('.welcome_message').removeClass('fadeIn');
+        $(".welcome_message").addClass('fadeOut').hide()
+        $('.hours').addClass('fadeOut');
         $('.give_number').fadeOut().hide();
         $('.display_number').addClass('xaxis');
         $('.user_number').addClass('yaxis');
@@ -45,7 +41,7 @@ $(document).ready(function () {
         }, 10000)
         setTimeout(function(){
             $('.display_number').fadeOut();
-            $('.now_serving').removeClass('swashIn').addClass('swashOut');
+            $('.now_serving').removeClass('swashIn').addClass('fadeOut').hide();
             setTimeout(function(){
                 $('.card').removeClass('hidden')
             },1000)

@@ -9,15 +9,12 @@ body{
     0% {transform: translateY(-150px); opacity: 0; z-index:0}
     100%{opacity: 1;z-index: 1}
 }
-@keyframes leftSlide{
-    0%{transform: translateX(-50%)}
-    100%{transform: translateX(0)}
-}
 
 @keyframes fadeIn {
 	0% {
 		opacity: 0.0;		
 	}
+    90%{ opacity: 0.8}
 	100% {
 		opacity: 1;	
 	}		
@@ -27,7 +24,8 @@ body{
         opacity: 1;
     }
     100%{
-        opacity: 0
+        opacity: 0;
+        display: none
     }
 }
 @keyframes yAxis {
@@ -44,34 +42,6 @@ body{
   }
 } 
 
-@keyframes spaceInUp {
-  0% {
-    opacity: 0;
-    transform-origin: 20% -250%;
-    transform: scale(0) translate(0%, -200%);
-  }
-
-  100% {
-    opacity: 1;
-    transform-origin: 50% 0%;
-    transform: scale(1) translate(0%, 0%);
-  }
-}
-@keyframes vanishIn {
-  0% {
-    opacity: 1;
-    transform-origin: 50% 50%;
-    transform: scale(2, 2);
-    filter: blur(90px);
-  }
-
-  100% {
-    opacity: 1;
-    transform-origin: 50% 50%;
-    transform: scale(1, 1);
-    filter: blur(0px);
-  }
-}
 @keyframes neon{
     from {
     text-shadow: 0 0 20px #FF1177, 0 0 40px #FF1177, 0 0 60px #FF1177, 0 0 80px #FF1177, 0 0 120px #FF1177, 0 0 140px #FF1177, 0 0 160px #FF1177, 0 0 150px #FF1177;
@@ -80,30 +50,7 @@ body{
     text-shadow: 0 0 10px #FF1177, 0 0 20px #FF1177, 0 0 30px #FF1177, 0 0 40px #FF1177, 0 0 60px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 75px #FF1177;
   }
 }
-@keyframes swashIn {
-  0% {
-    opacity: 0;
-    transform-origin: 50% 50%;
-    transform: scale(0);
-  }
-  100% {
-    opacity: 1;
-    transform-origin: 50% 50%;
-    transform: scale(1);
-  }
-}
-@keyframes swashOut {
-  0% {
-    opacity: 1;
-    transform-origin: 50% 50%;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform-origin: 50% 50%;
-    transform: scale(0);
-  }
-}
+
 @keyframes wiggle{
  0% {
     transform:rotate(0.2deg);
@@ -136,12 +83,27 @@ body{
     100%{
        background: white;
         color: #0e83cd;
-        border: 2px solid #0e83cd
+        border: 0.1px solid #0e83cd
+    }
+}
+@keyframes zoom_out{
+    100%{
+        background:#0e83cd;
+        color: white;
+        border: 0.1px solid white
     }
 }
 .fadeIn{
-    animation: fadeIn 1s
+    animation: fadeIn 1s ease-out;
 }
+.form-group {
+    padding-bottom: 25px;
+    border-radius: none
+}
+.options{
+       margin-bottom: -20px;
+}
+
 .loader{
   margin-top: 15%;
   margin-left:15%;
@@ -184,7 +146,10 @@ body{
     transform: translateY(-10px);
   }
 }
-
+.result{
+    display: inline-block;
+    text-align: center;
+}
 .bouncing{
   animation-name: bounce;
   animation-duration: 1.5s;
@@ -200,28 +165,38 @@ p{
   color: #0e83cd; 
   font-family: "Courier";
   font-size: 20px;
-margin-top: 15%;
-  margin-left:15%;
-  margin-right: 15%;
   display: inline-block;
   text-align: center;
   white-space: nowrap;
-  overflow: hidden;
   width: 30em;
-  animation: type 4s steps(60, end); 
+}
+#here_link{
+    width: 100%;
+    height: auto
+}
+#link{
+        text-align: center;
+    display: inline-flex;
+     padding-left: 10%;
+        position: absolute;
+    margin-top: -10%;
+    margin-left: -50%;
 }
 
-@keyframes type{ 
-  from { width: 0; } 
-}
 .btn{
-    color: white;
-    background-color: #0e83cd;
-    border: 2px solid white;
     padding-left: 15%;
-    padding-right: 15%
+    padding-right: 15%;
+    margin-left: 25%;
+    animation: zoom_out 0.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out
 }
+.btn:hover{
+    animation: zoom 0.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out
 
+}
 .xaxis{
     animation: xAxis 1s  ;
   animation-fill-mode: forwards;
@@ -236,19 +211,7 @@ margin-top: 15%;
     animation-iteration-count: 3;
     animation-duration: 0.5s
 }
-.animate{
-    animation: spaceInUp 1s;  
-}
-.tada{
-    animation: vanishIn 1s
-}
-.swashOut{
-    animation: swashOut 1s;
-    animation-fill-mode: forwards;
-}
-.swashIn{
-    animation: swashIn 1s
-}
+
 #welcome_message{
     font-size: 70px;
     max-width: 800px;
@@ -317,8 +280,8 @@ hr.stylehr{
     animation-fill-mode: forwards;
 }
 
-.exiting{
-    animation: 0.5s ease-in 0s 1 fadeOut;
+.fadeOut{
+    animation: 0.5s ease-out fadeOut;
     animation-fill-mode: forwards
 }
 
@@ -364,7 +327,7 @@ display: inline-block;
 }
 #card-errors{
     color: #f39c12;
-     animation: swashIn 0.3s
+     animation: fadeIn 0.3s
 }
 .status{
     display: inline-block
@@ -393,7 +356,9 @@ margin-bottom: 3%
 #user_form .has-error .form-control-feedback {
     color: #f39c12;
 }
-
+.help-block{
+    margin:0px;
+}
 #user_form .has-success .control-label,
 #user_form .has-success .help-block,
 #user_form .has-success .form-control-feedback {
@@ -412,7 +377,7 @@ margin-bottom: 3%
 }
 .thankYou{
     color: #18bc9c;
-    margin-top: 20%
+    margin-top:10%
 }
 #black{
     color: black
@@ -420,16 +385,23 @@ margin-bottom: 3%
 .shorter{
     margin-top: 15%;
     margin-left: 25%;
-    margin-right: 25%
+    margin-right: 25%;
+    position: relative
 }
-
+button.btn.gov.shorten {
+    margin-left: 30%;
+}
 .now_serving{
     left: 50%;
     margin-left: -50%;
+    margin-top: -10%;
     width: 100%;
     position: fixed;
    top: 40%;
      animation-fill-mode: forwards;
+}
+#wait_instruction{
+    margin-bottom: 20px
 }
 #serving_box{
     background-color: black;
@@ -452,12 +424,14 @@ margin-bottom: 3%
 .has-error{
     animation-name: wiggle;
     animation-duration: 0.3s;
-    animation-iteration-count: 3
+    animation-iteration-count: 3;
+    margin: 0px
 }
 .help-block{
-    animation: swashIn 0.3s
+    animation: fadeIn 0.3s;
+    margin: 0px
 }
 .glyphicon{
-    animation: swashIn 0.3s
+    animation: fadeIn 0.3s
 }
 

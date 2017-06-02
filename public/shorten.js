@@ -1,14 +1,5 @@
 
 $(document).ready(function () {
-    $(".btn").hover(
-        function () {
-            $(this).toggleClass('zoom');
-        }
-    );
-    $('.shorten').prop('disabled', true);
-    $('#url-field').keyup(function () {
-        $('.shorten').prop('disabled', this.value == "" ? true : false);
-    });
     $('#user_url').bootstrapValidator({
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
@@ -31,23 +22,22 @@ $(document).ready(function () {
     })
     $('.shorten').on('click', function () {
         $('#link').html('')
-        if ($('.shorter').hasClass('animate')) { $('.shorter').removeClass('animate') }
-        $.ajax({
-            url: '/api/shorten',
-            type: 'POST',
-            dataType: 'JSON',
-            data: { url: $('#url-field').val() },
-            success: function (data) {
-                var result = '<a  class = "result" href="' + data.shortUrl + '" target= "_blank">' + data.shortUrl + '</a>';
-                $('.loader2').removeClass('hidden');
-                setTimeout(function () {
-                    $('.loader2').fadeOut();
-                     $('.shorter').removeClass('hidden')    
-                }, 2500)
-                setTimeout(function(){
+        var bootstrapValidator = $('#user_url').data('bootstrapValidator');
+        bootstrapValidator.validate();
+        if (bootstrapValidator.isValid()) {
+            $.ajax({
+                url: '/api/shorten',
+                type: 'POST',
+                dataType: 'JSON',
+                data: { url: $('#url-field').val() },
+                success: function (data) {
+                    var result = '<a  class = "result" href="' + data.shortUrl + '" target= "_blank"> <p>' + data.shortUrl + '</p></a>';
+                    $('#link').addClass('fadeIn')
                     $('#link').html(result);
-                },2800)
-            }
-        });
+                }
+            });
+        }
+        else return
     });
+
 })
