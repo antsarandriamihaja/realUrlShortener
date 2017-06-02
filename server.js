@@ -55,7 +55,6 @@ app.post('/api/shorten', function (req, res){
         long_url: longUrl
     }, function(err, doc){
         if (doc){
-            console.log(webost)
             shortUrl = webhost +base58.encode(doc._id);
 
             res.send({'shortUrl': shortUrl});
