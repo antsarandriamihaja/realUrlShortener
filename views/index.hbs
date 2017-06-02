@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <title> URL shortening app</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link href="/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Codystar|Raleway+Dots|Bitter:700" rel="stylesheet">
 
 </head>
 
@@ -14,34 +17,55 @@
         <div class='form_title'>
             <img id='logo' src="http://www.international.gc.ca/world-monde/assets/images/funding-financement/GOC_colour_en.png" alt="gov_logo">
         </div>
-        <h1> URL-shortening service</h1>
-        <div class='service card'>
-            <div class='thankYou'>
-                <h2>Thank you for your payment.</h2>
-            </div>
-            <br>
+
+        <div class='processing'>
+            <div class='loader'>
+  <div class="dot red bouncing"></div>
+  <div class="dot yellow bouncing"></div>
+  <div class="dot blue bouncing"></div>
+  <div class="dot purple bouncing"></div>
+  <div class='dot orange bouncing'> </div>
+</div>
+        
+        <div class='thankYou fadeIn hidden'>
+            <h1>Thank you for your payment.</h1>
+            <h3 id='black'>We promise your money will go to health care.</h3>
+        </div>
+        </div>
+        <br>
+        <div class='service card hidden swashIn'>
             <div id='instructions'>
-                <h4>Enter the URL you wish to shorten below. <br> Carefully review the URL before submitting it for compression.
+                <h1> URL-shortening service</h1>
+                <h4>Enter the URL you wish to shorten below.
                 </h4>
 
                 <br>
-
             </div>
-            <form id='user_url' data-toggle='validator'>
-                <div class="form-group">
-                        <input name='url' id="url-field" type="text" class="form-control input-lg" placeholder="URL to shorten (format: http://www.example.com)" required>
+            <div class='url_form'>
+                <form id='user_url' data-toggle='validator'>
+                    <div class="form-group">
+                        <input name='url' id="url-field" type="text" class="form-control input-lg" placeholder="URL to shorten (format: http://www.example.com)"
+                            required>
                     </div>
-                
+
                     <div class="help-block with-errors"></div>
-                   <div>
-        <button class="btn btn-primary shorten" type="button">SHORTEN</button>
-        </div> 
-            </form>
-            <div class='shorter'>
-                <h1 id="link"></h1>
+                    <div>
+                        <button class="btn gov shorten" type="button">SHORTEN</button>
+                    </div>
+                </form>
+            </div>
+            <div class='loader hidden loader2'>
+  <div class="dot red bouncing"></div>
+  <div class="dot yellow bouncing"></div>
+  <div class="dot blue bouncing"></div>
+  <div class="dot purple bouncing"></div>
+  <div class='dot orange bouncing'> </div>
+</div>
+            <div class='shorter hidden'>
+                <p id="link"></p>
             </div>
         </div>
-       
+
     </div>
     </div>
 </body>
@@ -49,3 +73,4 @@
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
 <script src="/shorten.js"></script>
+<script src='javascripts/index.js'></script>

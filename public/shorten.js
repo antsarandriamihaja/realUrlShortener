@@ -1,5 +1,10 @@
 
 $(document).ready(function () {
+    $(".btn").hover(
+        function () {
+            $(this).toggleClass('zoom');
+        }
+    );
     $('.shorten').prop('disabled', true);
     $('#url-field').keyup(function () {
         $('.shorten').prop('disabled', this.value == "" ? true : false);
@@ -25,7 +30,8 @@ $(document).ready(function () {
         }
     })
     $('.shorten').on('click', function () {
-        if ($('.shorter').hasClass('animate')) { $('.shorter').removeClass('animate tada') }
+        $('#link').html('')
+        if ($('.shorter').hasClass('animate')) { $('.shorter').removeClass('animate') }
         $.ajax({
             url: '/api/shorten',
             type: 'POST',
@@ -33,12 +39,14 @@ $(document).ready(function () {
             data: { url: $('#url-field').val() },
             success: function (data) {
                 var result = '<a  class = "result" href="' + data.shortUrl + '" target= "_blank">' + data.shortUrl + '</a>';
-                $('.shorter').addClass('animate')
+                $('.loader2').removeClass('hidden');
+                setTimeout(function () {
+                    $('.loader2').fadeOut();
+                     $('.shorter').removeClass('hidden')    
+                }, 2500)
                 setTimeout(function(){
-                    $('.shorter').addClass('tada')
-                },1000)
-                $('#link').html(result);
-
+                    $('#link').html(result);
+                },2800)
             }
         });
     });

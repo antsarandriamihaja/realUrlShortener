@@ -6,17 +6,18 @@
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link href="/style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Codystar|Raleway+Dots" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Codystar|Raleway+Dots|Bitter:700" rel="stylesheet">
 </head>
 
 <body>
     <div class='container'>
         <div class='page1'>
-            <div class='form_title'>
+            <div class='form_title fadeIn'>
                 <img id='logo' src="http://www.international.gc.ca/world-monde/assets/images/funding-financement/GOC_colour_en.png" alt="gov_logo">
             </div>
-            <div id='welcome_message' class='welcome_message'>
+            <div id='welcome_message' class='welcome_message fadeIn'>
                 <h1 id='welcome'>
                     Welcome to the government-funded URL-shortening service.
                 </h1>
@@ -24,7 +25,7 @@
             <div class='closed'>
                 <h1>Sorry, this service is currently unavailable. Please see our opening hours below.</h1>
             </div>
-            <div class='now_serving swashIn hidden'>
+            <div class='now_serving fadeIn hidden'>
                 <div id='serving_box'>
                     <h2>
                         NOW SERVING
@@ -42,19 +43,19 @@
             </div>
 
             <div class='display_number'>
-                <figure>
+                <div class='user_number'>
                     <img id='user_number' src="https://modernweb.com/wp-content/uploads/2014/02/icon_28196_67.png" alt="user_number">
-                </figure>
+                </div>
             </div>
 
             <div class='hours'>
-                <p id='service_hours'> We are open from 10am to 3pm on Monday through Friday. <br> Except on holidays including Mother's Day, Thanksgiving,
+                <h7 id='service_hours'> We are open from 10am to 3pm on Monday through Friday. <br> Except on holidays including Mother's Day, Thanksgiving,
                     Labour Day, Remembrance Day, and others. <br> We also take a lunch break from 11am-1pm so time your arrival
-                    appropriately. Thank you. </p>
+                    appropriately. Thank you. </h7>
 
             </div>
         </div>
-        <div class='card hidden swashIn'>
+        <div class='card hidden fadeIn'>
             <div class='user_form'>
                 <div class='form_instructions'>
                     <h1>URL-shortening service: Application form.</h1>
@@ -88,21 +89,22 @@
                         <label for="marital">Marital status: </label>
                         <div class='input-group'>
 
-                            <select class='form-control' id='civil_status' required>
+                            <select class='form-control' class="selectpicker">
   <option value="single">Single</option>
   <option value="Married">Married</option>
   <option value="Divorced">Divorced</option>
   <option value="Widowed">Widowed</option>
  
                     </select>
+ 
                         </div>
                     </div>
                     <br>
                     <div class='form-group'>
                         <label for="status">Status in Canada: </label>
                         <div class='input-group'>
-
-                            <select class='form-control' id='status' required>
+                            
+                            <select class='form-control' class="selectpicker" >
   <option value="Citizen">Canadian Citizen</option>
   <option value="PR">Permanent Resident</option>
   <option value="TR">Temporary Resident</option>
@@ -113,14 +115,14 @@
                     <br>
                     <div class="form-group">
 
-                        <button type='submit' id='proceed' class="btn btn-primary btn-lg">Proceed to payment</button>
+                        <button type='submit' id='proceed' class="btn gov btn-lg">Proceed to payment</button>
 
                     </div>
                 </form>
             </div>
         </div>
 
-        <div class='stripe hidden swashIn'>
+        <div class='stripe hidden fadeIn'>
             <div class='title'>
                 <h2>Billing information</h2>
                 <br>
@@ -148,7 +150,7 @@
                 <br>
                 <div class="submit">
 
-                    <button type="submit" class="btn btn-primary btn-lg">Submit Payment</button>
+                    <button type="submit" class="btn gov btn-lg">Submit Payment</button>
 
                 </div>
             </form>

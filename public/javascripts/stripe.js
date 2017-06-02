@@ -1,9 +1,12 @@
 var stripe = Stripe('pk_test_i0mAS5A7uVZDTpDWkbNkAIt7');
 var elements = stripe.elements();
 //add an instance of the card Element
-
 var form = document.getElementById('payment-form');
-
+$(".btn").hover(
+  function () {
+    $(this).toggleClass('zoom');
+  }
+  );
 var card = elements.create('card', {
     hidePostalCode: true
 });
