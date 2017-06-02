@@ -9,6 +9,7 @@ var Url = require('./server/models/url');
 const stripe = require('stripe')(config.secret_key);
 
 var port = process.env.PORT || 3000;
+var webhost = process.env.HOST || config.webhost;
 
 var app = express();
 app.set('view engine', 'hbs');
@@ -52,7 +53,7 @@ app.post('/api/shorten', function (req, res){
         long_url: longUrl
     }, function(err, doc){
         if (doc){
-            shortUrl = config.webhost +base58.encode(doc._id);
+            shortUrl = webhost +base58.encode(doc._id);
 
             res.send({'shortUrl': shortUrl});
         }
@@ -63,7 +64,7 @@ app.post('/api/shorten', function (req, res){
 
             newUrl.save(function(err){
                 if (err){ return console.log(err);}
-                shortUrl = config.webhost + base58.encode(newUrl._id);
+                shortUrl = webhost + base58.encode(newUrl._id);
                 res.send({'shortUrl': shortUrl});
             });
         }
@@ -79,7 +80,7 @@ app.get('/:encoded_id', function(req, res){
     Url.findOne({_id: id}, function(err, doc){
         if (doc){res.redirect(doc.long_url);}
         else{
-            res.redirect(config.webhost);
+            res.redirect(webhost);
         }
     });
 });
